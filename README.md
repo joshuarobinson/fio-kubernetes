@@ -2,6 +2,8 @@
 
 Example approaches for running parallel FIO tests in Kubernetes to test either RWO or RWX volumes.
 
+For more detailed explanations please see the [accompanying blog post](https://medium.com/@joshua_robinson/storage-benchmarking-with-fio-in-kubernetes-14cf29dc5375).
+
 Two different approaches are shown: 1) a simple deployment and PVC for RWX volumes and 2) a statefulset for RWO/RWX. Tradeoffs between the two approaches discussed below.
 
 FIO job configs are stored as a configMap object in configs.yaml. There is currently one config, but additional configs could be added.
