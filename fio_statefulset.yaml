@@ -18,7 +18,12 @@ spec:
       - name: fio
         image: joshuarobinson/fio:3.19
         command: ["fio"]
-        args: ["/configs/fio.job", "--eta=never", "--filename_format=$(hostname)/$jobnum.$filenum", "--directory=/scratch/"]
+        args: ["/configs/fio.job", "--eta=never", "--filename_format=$(HOSTNAME)/$jobnum.$filenum", "--directory=/scratch/"]
+        env:
+        - name: HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
         volumeMounts:
         - name: fio-config-vol
           mountPath: /configs
